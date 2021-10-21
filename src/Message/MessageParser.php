@@ -138,7 +138,7 @@ class MessageParser
         $header = '';
         do {
             $line = $this->readLine($handle);
-            if (empty($line) || $line[0] !== "\t" && $line[0] !== ' ') {
+            if (empty($line) || (isset($line[0]) && $line[0] !== "\t" && $line[0] !== ' ')) {
                 $this->addRawHeaderToPart($header, $partBuilder);
                 $header = '';
             } else {
